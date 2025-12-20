@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react';
 import { RESTAURANT_INFO } from '../constants';
 
+
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
@@ -11,6 +12,9 @@ const Contact: React.FC = () => {
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 5000);
   };
+
+  const MAPS_Key = import.meta.env.VITE_MAPS_API_KEY;
+  const googleMapsUrl = `https://www.google.com/maps/embed/v1/place?q=Halal+Pizza+Express+New+Hyde+Park+NY&key=${MAPS_Key}`;
 
   return (
     <div className="animate-in slide-in-from-right-4 duration-500 bg-brand-black min-h-screen">
@@ -54,20 +58,8 @@ const Contact: React.FC = () => {
 
               {/* Street Map Visual */}
               <div className="bg-brand-gray overflow-hidden h-80 shadow-[15px_15px_0px_#F7931E] relative group">
-                <img 
-                  src="https://images.unsplash.com/photo-1526778545894-dd8163498ce6?q=80&w=2070&auto=format&fit=crop" 
-                  alt="NYC Street Map" 
-                  className="w-full h-full object-cover opacity-30 grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-1000"
-                />
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <a 
-                    href="https://maps.google.com" 
-                    target="_blank" 
-                    rel="noopener"
-                    className="bg-brand-orange text-brand-black px-12 py-5 font-black uppercase tracking-widest text-xl shadow-2xl hover:bg-brand-red hover:text-brand-white transition-all transform hover:scale-110 active:scale-95 italic"
-                  >
-                    GET DIRECTIONS
-                  </a>
+                  <iframe title='map' loading="lazy" width={525} height={275} referrerPolicy="no-referrer-when-downgrade" src={googleMapsUrl}></iframe>
                 </div>
               </div>
             </div>

@@ -22,7 +22,7 @@ const Footer: React.FC = () => {
 
           {/* Quick Info */}
           <div className="space-y-10">
-            <h4 className="text-2xl font-black uppercase tracking-widest border-b-4 border-brand-orange inline-block pb-2">THE LOCATION</h4>
+            <h4 className="text-2xl font-black uppercase tracking-widest border-b-4 border-brand-orange inline-block pb-2">LOCATION</h4>
             <div className="space-y-8">
               <div className="flex items-start space-x-6">
                 <MapPin className="text-brand-red flex-shrink-0 mt-1" size={32} />
@@ -37,7 +37,7 @@ const Footer: React.FC = () => {
 
           {/* Hours */}
           <div className="space-y-10">
-            <h4 className="text-2xl font-black uppercase tracking-widest border-b-4 border-brand-orange inline-block pb-2">VIBE TIMES</h4>
+            <h4 className="text-2xl font-black uppercase tracking-widest border-b-4 border-brand-orange inline-block pb-2">HOURS</h4>
             <div className="space-y-6">
               <div className="flex items-start space-x-6">
                 <Clock className="text-brand-orange flex-shrink-0 mt-1" size={32} />
@@ -59,9 +59,9 @@ const Footer: React.FC = () => {
         <div className="mt-24 pt-12 border-t border-brand-gray text-center flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0 text-brand-orange font-black uppercase tracking-[0.3em] text-sm">
           <p>&copy; {new Date().getFullYear()} HALAL PIZZA EXPRESS • HILLSIDE AVE PRIDE</p>
           <div className="flex space-x-10">
-            <a href="#" className="hover:text-brand-red transition-all transform hover:scale-125 font-black">INSTAGRAM</a>
-            <a href="#" className="hover:text-brand-red transition-all transform hover:scale-125 font-black">FACEBOOK</a>
-            <a href="#" className="hover:text-brand-red transition-all transform hover:scale-125 font-black">YELP</a>
+            <a href="https://www.instagram.com/halalpizzaexpress/" target="blank_" rel="noopener noreferrer" className="hover:text-brand-red transition-all transform hover:scale-125 font-black">INSTAGRAM</a>
+            <a href="https://www.facebook.com/profile.php?id=61577647206526#" target="blank_" rel="noopener noreferrer" className="hover:text-brand-red transition-all transform hover:scale-125 font-black">FACEBOOK</a>
+            <a href="https://www.yelp.com/search?find_desc=Halal%20Pizza&find_loc=New%20Hyde%20Park,%20NY%2011040&msockid=24b636ed43f06afd0f7825e142246b78" target="blank_" rel="noopener noreferrer" className="hover:text-brand-red transition-all transform hover:scale-125 font-black">YELP</a>
           </div>
         </div>
       </div>

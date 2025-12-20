@@ -70,12 +70,6 @@ const Order: React.FC = () => {
               <p className="text-brand-red font-black text-xl uppercase tracking-widest">Open until 1 AM Weekends</p>
             </div>
           </div>
-          <div className="text-center md:text-right">
-             <div className="inline-block bg-brand-black text-brand-white px-8 py-4">
-                <p className="font-black uppercase tracking-widest text-lg italic">DELIVERY RADIUS</p>
-                <p className="font-bold text-2xl text-brand-orange">5 MILES • NEW HYDE PARK</p>
-             </div>
-          </div>
         </div>
       </div>
     </div>
