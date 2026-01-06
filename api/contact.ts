@@ -1,5 +1,10 @@
+export const config = {
+  runtime: 'nodejs',
+};
+
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 const nodemailer = require("nodemailer");
+
 
 export default async function handler(
   req: VercelRequest,
