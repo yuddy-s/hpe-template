@@ -3,7 +3,7 @@ export const config = {
 };
 
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-const nodemailer = require("nodemailer");
+import nodemailer from 'nodemailer';
 
 
 export default async function handler(
