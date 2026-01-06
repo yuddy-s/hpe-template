@@ -1,7 +1,5 @@
 import React from 'react';
 import { ShoppingBag, ChevronRight, Star, CookingPot, Navigation } from 'lucide-react';
-import { RESTAURANT_INFO } from '../constants';
-
 const Home: React.FC = () => {
   return (
     <div className="animate-in fade-in duration-700 bg-brand-black">

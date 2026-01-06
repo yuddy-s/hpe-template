@@ -1,5 +1,5 @@
 import React from 'react';
-import { ExternalLink, Truck, Clock, ShieldCheck, PhoneCall } from 'lucide-react';
+import { ExternalLink, Truck, Clock, PhoneCall } from 'lucide-react';
 import { RESTAURANT_INFO } from '../constants';
 
 const Order: React.FC = () => {
