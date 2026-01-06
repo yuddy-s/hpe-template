@@ -140,7 +140,6 @@ const Contact: React.FC = () => {
                   <button 
                     type="submit"
                     className="w-full bg-brand-red text-brand-white font-black py-6 hover:bg-brand-orange hover:text-brand-black transition-all duration-300 shadow-xl flex items-center justify-center space-x-4 uppercase tracking-[0.2em] text-2xl italic"
-                    onClick={() => console.log(formData)}
                   >
                     <span>SEND MESSAGE</span>
                     <Send size={28} />
