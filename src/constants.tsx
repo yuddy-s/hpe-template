@@ -1,5 +1,4 @@
 
-import React from 'react';
 import type { MenuItem, RestaurantInfo } from './types.ts';
 
 export const RESTAURANT_INFO: RestaurantInfo = {

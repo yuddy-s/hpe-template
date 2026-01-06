@@ -1,16 +1,32 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react';
+import { Phone, MapPin, Send, CheckCircle } from 'lucide-react';
 import { RESTAURANT_INFO } from '../constants';
 
 
 const Contact: React.FC = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 5000);
+    
+    try {
+      const res = await fetch("/api/contact", {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      })
+
+      if(!res.ok) throw new Error('Failed')
+
+      setSubmitted(true);
+      setTimeout(() => setSubmitted(false), 5000);
+      setFormData({ ...formData, message: '' })
+    } catch (e) {
+      console.error(e)
+      alert('Something went wrong. Please try again.')
+    }
+
   };
 
   const MAPS_Key = import.meta.env.VITE_MAPS_API_KEY;
@@ -92,6 +108,8 @@ const Contact: React.FC = () => {
                         type="text" 
                         className="w-full px-6 py-5 bg-brand-black border-2 border-brand-orange/20 focus:border-brand-orange text-brand-white transition-all font-black text-lg outline-none"
                         placeholder="ALI"
+                        value={formData.name}
+                        onChange={e => setFormData({ ...formData, name: e.target.value })}
                       />
                     </div>
                     <div className="space-y-4">
@@ -101,6 +119,8 @@ const Contact: React.FC = () => {
                         type="email" 
                         className="w-full px-6 py-5 bg-brand-black border-2 border-brand-orange/20 focus:border-brand-orange text-brand-white transition-all font-black text-lg outline-none"
                         placeholder="ALI@GMAIL.COM"
+                        value={formData.email}
+                        onChange={e => setFormData({ ...formData, email: e.target.value })}
                       />
                     </div>
                   </div>
@@ -112,12 +132,15 @@ const Contact: React.FC = () => {
                       rows={4}
                       className="w-full px-6 py-5 bg-brand-black border-2 border-brand-orange/20 focus:border-brand-orange text-brand-white transition-all font-black text-lg outline-none resize-none"
                       placeholder="WHAT'S UP?"
+                      value={(formData.message)}
+                      onChange={e => setFormData({ ...formData, message: e.target.value })}
                     ></textarea>
                   </div>
                   
                   <button 
                     type="submit"
                     className="w-full bg-brand-red text-brand-white font-black py-6 hover:bg-brand-orange hover:text-brand-black transition-all duration-300 shadow-xl flex items-center justify-center space-x-4 uppercase tracking-[0.2em] text-2xl italic"
+                    onClick={() => console.log(formData)}
                   >
                     <span>SEND MESSAGE</span>
                     <Send size={28} />
